@@ -41,7 +41,8 @@ resource "aws_security_group" "ec2_security_group" {
 }
 
 resource "aws_instance" "Monitoring_server" {
-ami = data.aws_ssm_parameter.ubuntu_ami.valueinstance_type = "t3.medium"
+ami = data.aws_ssm_parameter.ubuntu_ami.value
+instance_type = "t3.medium"
 security_groups = [aws_security_group.ec2_security_group.name]
 key_name = var.key_name
 tags = {
